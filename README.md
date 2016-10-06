@@ -1,7 +1,5 @@
 Opinionated osx settings and key bindings.
 
-Uses hijackey (http://github.com/louispan/hijackey) to allow more key combinations in iTerm.
-
 # Installation
 
 ```
