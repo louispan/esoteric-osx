@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+
+# Get SOURCE_DIR resolving symbolic links
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in/246128#246128
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  # LP: modified to append path correctly when SOURCE_DIR is "/"
+  [[ $SOURCE != /* ]] && SOURCE="${SOURCE_DIR%\/}/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+[[ $1 == "-v" ]] && VERBOSE=-v
+
+link() {
+    if [ "$1" -ef "$2" ]; then
+        [ -z "$VERBOSE" ] || echo "Already linked \"$2\" to \"$1\""
+    else
+        ( echo "linking \"$2\" to \"$1\"" && ln -s "$1" "$2" )
+    fi
+}
+
+append_line() {
+    [ -f "$2" ] || touch "$2"
+    lines=$(grep -nF "$1" "$2" | sed 's/:.*//' | tr '\n' ' ')
+    if [ -n "$lines" ]; then
+        [ -z "$VERBOSE" ] || echo "Already appended \"$1\" to \"$2\": line $lines"
+    else
+        # add newline before appending
+        if [ -n "$(tail -c 1 "$2")" ]; then
+            echo >> "$2"
+        fi
+        echo "$1" >> "$2"
+        echo "Appended \"$1\" to \"$2\""
+    fi
+}
+
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    echo "Not OSX, not installing osxrc."
+    exit 0
+fi
+
+install-osx-tweaks() {
+    # Gobal OSX tweaks
+    VAL=`defaults read com.apple.finder QLEnableTextSelection`
+    if [ "$VAL" != "1" -a "$VAL" != "TRUE" ]; then
+        echo 'Speeding up scrolling globally (required for iTerm2)'
+        defaults write -g NSScrollAnimationEnabled -bool false
+    fi
+
+    # 'Finder tweaks'
+    local RESTART_FINDER
+    local VAL
+
+    VAL=`defaults read com.apple.finder QLEnableTextSelection`
+    if [ "$VAL" != "1" -a "$VAL" != "TRUE" ]; then
+        RESTART_FINDER=yes
+        echo 'Allowing selecting text from finder quicklook (spacebar on finder item)'
+        defaults write com.apple.finder QLEnableTextSelection -bool true
+    fi
+
+    VAL=`defaults read com.apple.finder AppleShowAllFiles`
+    if [ "$VAL" != "1" -a "$VAL" != "TRUE" ]; then
+        RESTART_FINDER=yes
+        echo 'Showing hidden files'
+        defaults write com.apple.finder AppleShowAllFiles -bool true
+    fi
+    if [ -n "$RESTART_FINDER" ]; then
+        killall Finder
+    fi
+}
+
+install-osx-preferences() {
+    # workflows cannot be symlinked and get *moved* when installed
+    if [ ! -e "$HOME/Library/Services/Add to QuickLook.workflow" ]; then
+        mkdir -p "$SOURCE_DIR/tmp/Library/Services"
+        cp "$SOURCE_DIR/Library/Services/Add to QuickLook.workflow" "$SOURCE_DIR/tmp/Library/Services/Add to QuickLook.workflow"
+        open "$SOURCE_DIR/tmp/Library/Services/Add to QuickLook.workflow"
+    fi
+
+    cp "$SOURCE_DIR/Library/KeyBindings/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+}
+
+install-allow-home-mount() {
+    # Allow mounting (eg sshfs) of /home
+    # http://stackoverflow.com/questions/1362703/how-can-i-use-the-home-directory-on-mac-os-x
+    # edit `/etc/auto_master` and comment out the line with /home in it.
+    # then `sudo automount -vc`
+    local SEARCH
+    SEARCH="^\/home"
+    local FILE
+    FILE="/etc/auto_master"
+    if grep -e "$SEARCH" "$FILE" > /dev/null 2>&1
+    then
+        echo "Enabling mounting on /home"
+        sudo sed -i '' "s/^\/home/#\/home/" "$FILE"
+        sudo automount -vc
+    fi
+}
+
+install-brew() {
+    which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+install-osx-tweaks
+install-allow-home-mount
+install-osx-preferences
+install-brew

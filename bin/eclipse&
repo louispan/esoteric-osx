@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$HOME/opt/eclipse/Eclipse.app/Contents/MacOS/eclipse" &> /dev/null &

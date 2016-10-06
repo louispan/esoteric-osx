@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+"/Applications/Utilities/iTerm.app/Contents/MacOS/iTerm2" &
+
