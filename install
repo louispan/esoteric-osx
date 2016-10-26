@@ -75,10 +75,11 @@ install-osx-preferences() {
     # workflows cannot be symlinked and get *moved* when installed
     if [ ! -e "$HOME/Library/Services/Add to QuickLook.workflow" ]; then
         mkdir -p "$SOURCE_DIR/tmp/Library/Services"
-        cp "$SOURCE_DIR/Library/Services/Add to QuickLook.workflow" "$SOURCE_DIR/tmp/Library/Services/Add to QuickLook.workflow"
+        cp -r "$SOURCE_DIR/Library/Services/Add to QuickLook.workflow" "$SOURCE_DIR/tmp/Library/Services/Add to QuickLook.workflow"
         open "$SOURCE_DIR/tmp/Library/Services/Add to QuickLook.workflow"
     fi
 
+    mkdir -p "$HOME/Library/KeyBindings"
     cp "$SOURCE_DIR/Library/KeyBindings/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
 }
 
