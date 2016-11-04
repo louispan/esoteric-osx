@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Change Tab Key</name>
+    <item>
+      <name>Swap Command+Tab and Option+Tab (except in Remote Desktop)</name>
+      <not>REMOTEDESKTOPCONNECTION</not>
+      <identifier>private.swap_commandtaboptiontab_not_remotedesktop</identifier>
+      <include path="/Applications/Karabiner.app/Contents/Resources/include/checkbox/snippets/modifier_tab_to_command_tab.xml">
+        <replacementdef>
+          <replacementname>FROM_MODIFIER</replacementname>
+          <replacementvalue>OPTION_L</replacementvalue>
+        </replacementdef>
+        <replacementdef>
+          <replacementname>TO_MODIFIER</replacementname>
+          <replacementvalue>OPTION_L</replacementvalue>
+        </replacementdef>
+      </include>
+      <include path="/Applications/Karabiner.app/Contents/Resources/include/checkbox/snippets/modifier_tab_to_command_tab.xml">
+        <replacementdef>
+          <replacementname>FROM_MODIFIER</replacementname>
+          <replacementvalue>OPTION_R</replacementvalue>
+        </replacementdef>
+        <replacementdef>
+          <replacementname>TO_MODIFIER</replacementname>
+          <replacementvalue>OPTION_R</replacementvalue>
+        </replacementdef>
+      </include>
+      <autogen>__KeyToKey__ KeyCode::TAB, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::TAB, ModifierFlag::OPTION_L</autogen>
+    </item>
+  </item>
+  <item>
+    <name>Enable at only Remote Desktop</name>
+    <item>
+      <name>Swap command key with control key in Remote Desktop.</name>
+      <identifier>private.app_rdc_command_to_control</identifier>
+      <only>REMOTEDESKTOPCONNECTION</only>
+      <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::CONTROL_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::CONTROL_L, KeyCode::COMMAND_L</autogen>
+    </item>
+  </item>
+</root>

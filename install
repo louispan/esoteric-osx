@@ -85,6 +85,9 @@ install-osx-preferences() {
 
     mkdir -p "$HOME/Library/KeyBindings"
     cp "$SOURCE_DIR/Library/KeyBindings/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+
+    mkdir -p "$HOME/Library/Application Support/Karabiner"
+    cp "$SOURCE_DIR/Library/Application Support/Karabiner/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 }
 
 install-allow-home-mount() {
