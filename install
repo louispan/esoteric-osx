@@ -109,6 +109,7 @@ install-allow-home-mount() {
 
 install-brew() {
     which brew >/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install gnu-sed
 }
 
 install-osx-tweaks
