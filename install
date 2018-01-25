@@ -89,8 +89,7 @@ install-osx-preferences() {
     mkdir -p "$HOME/Library/Application Support/Karabiner"
     cp "$SOURCE_DIR/Library/Application Support/Karabiner/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 
-    link "$SOURCE_DIR/.config/karabiner/assets/complex_modifications/app_switch.json" "$HOME/.config/karabiner/assets/complex_modifications/app_switch.json"
-    link "$SOURCE_DIR/.config/karabiner/assets/complex_modifications/remote_desktop.json" "$HOME/.config/karabiner/assets/complex_modifications/remote_desktop.json"
+    link "$SOURCE_DIR/.config/karabiner/assets/complex_modifications/modifier_tweaks.json" "$HOME/.config/karabiner/assets/complex_modifications/modifier_tweaks.json"
     link "$SOURCE_DIR/Library/Application Support/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
     link "$SOURCE_DIR/Library/Application Support/Code/User/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 }
