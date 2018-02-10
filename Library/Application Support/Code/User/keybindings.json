@@ -69,11 +69,11 @@
         "command": "-workbench.action.nextEditor"
     },
     {
-        "key": "alt+cmd+left",
+        "key": "cmd+left",
         "command": "cursorWordLeft"
     },
     {
-        "key": "shift+alt+cmd+left",
+        "key": "shift+cmd+left",
         "command": "cursorWordLeftSelect"
     },
     {
@@ -82,7 +82,7 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+cmd+backspace",
+        "key": "cmd+backspace",
         "command": "deleteWordLeft",
         "when": "editorTextFocus && !editorReadonly"
     },
@@ -92,16 +92,16 @@
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+cmd+delete",
+        "key": "cmd+delete",
         "command": "deleteWordRight",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+cmd+right",
+        "key": "cmd+right",
         "command": "cursorWordRight"
     },
     {
-        "key": "shift+alt+cmd+right",
+        "key": "shift+cmd+right",
         "command": "cursorWordRightSelect"
     }
 ]
