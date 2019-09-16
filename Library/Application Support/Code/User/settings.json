@@ -1,16 +1,37 @@
 {
-    // Specifies the color theme used in the workbench.
-    "workbench.colorTheme": "Monokai",
-
-    // Controls the font size in pixels.
     "editor.fontSize": 14,
 
+    // Code action kinds to be run on save.
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+
     // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
-    "window.zoomLevel": -1.5,
+    "window.zoomLevel": -1,
 
     // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.
     "editor.autoIndent": false,
 
     // Controls if the editor should automatically close brackets after opening them
     "editor.autoClosingBrackets": false,
+
+    // Controls if the minimap is shown
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+
+    // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
+    "files.exclude": {
+        "**/.git":  true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.stack-work": true
+    },
+    "haskero.debugMode": true,
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "workbench.editor.showIcons": false,
+    "workbench.iconTheme": "Monokai Classic Icons",
+    "workbench.colorTheme": "Monokai Dark Vibrant",
+    "workbench.activityBar.visible": false
 }

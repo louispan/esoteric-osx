@@ -1,0 +1,40 @@
+[
+    { "keys": ["("], "command": "insert", "args": {"characters": "("} },
+    { "keys": [")"], "command": "insert", "args": {"characters": ")"} },
+    { "keys": ["["], "command": "insert", "args": {"characters": "["} },
+    { "keys": ["]"], "command": "insert", "args": {"characters": "]"} },
+    { "keys": ["{"], "command": "insert", "args": {"characters": "{"} },
+    { "keys": ["}"], "command": "insert", "args": {"characters": "}"} },
+    { "keys": ["'"], "command": "insert", "args": {"characters": "'"} },
+    { "keys": ["\""], "command": "insert", "args": {"characters": "\""} },
+
+    { "keys": ["option+up"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": false} },
+    { "keys": ["option+down"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": true} },
+    { "keys": ["shift+option+up"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": false, "extend": true} },
+    { "keys": ["shift+option+down"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": true, "extend": true} },
+
+    // { "keys": ["super+up"], "command": "move", "args": {"by": "pages", "empty_line": true, "forward": false} },
+    // { "keys": ["super+down"], "command": "move", "args": {"by": "pages", "empty_line": true, "forward": true} },
+    // { "keys": ["shift+super+up"], "command": "move", "args": {"by": "pages", "empty_line": true, "forward": false, "extend": true} },
+    // { "keys": ["shift+super+down"], "command": "move", "args": {"by": "pages", "empty_line": true, "forward": true, "extend": true} },
+
+    { "keys": ["option+left"], "command": "move", "args": {"by": "subwords", "empty_line": true, "forward": false} },
+    { "keys": ["option+right"], "command": "move", "args": {"by": "subwords", "empty_line": true, "forward": true} },
+    { "keys": ["shift+option+left"], "command": "move", "args": {"by": "subwords", "empty_line": true, "forward": false, "extend": true} },
+    { "keys": ["shift+option+right"], "command": "move", "args": {"by": "subwords", "empty_line": true, "forward": true, "extend": true} },
+    { "keys": ["option+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/User/SubwordNavigation/delete_subword_backwards.sublime-macro"} },
+    { "keys": ["option+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/User/SubwordNavigation/delete_subword_forwards.sublime-macro"} },
+
+    { "keys": ["super+left"], "command": "move", "args": {"by": "words", "empty_line": true, "forward": false} },
+    { "keys": ["super+right"], "command": "move", "args": {"by": "words", "empty_line": true, "forward": true} },
+    { "keys": ["shift+super+left"], "command": "move", "args": {"by": "words", "empty_line": true, "forward": false, "extend": true} },
+    { "keys": ["shift+super+right"], "command": "move", "args": {"by": "words", "empty_line": true, "forward": true, "extend": true} },
+    { "keys": ["super+backspace"], "command": "run_macro_file", "args": {"file": "Packages/User/SubwordNavigation/delete_word_backwards.sublime-macro"} },
+    { "keys": ["super+delete"], "command": "run_macro_file", "args": {"file": "Packages/User/SubwordNavigation/delete_word_forwards.sublime-macro"} },
+
+    { "keys": ["ctrl+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"} },
+    { "keys": ["ctrl+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"} },
+
+    { "keys": ["option+ctrl+e"], "command": "reveal_in_side_bar" },
+    {}
+]

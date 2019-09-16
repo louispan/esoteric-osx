@@ -89,6 +89,9 @@ install-osx-preferences() {
     mkdir -p "$HOME/Library/Application Support/Karabiner"
     cp "$SOURCE_DIR/Library/Application Support/Karabiner/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 
+    mkdir -p "$HOME/Library/Application Support/Sublime Text 3/Packages"
+    link "$SOURCE_DIR/Library/Application Support/Sublime Text 3/Packages/User" "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+
     link "$SOURCE_DIR/.config/karabiner/assets/complex_modifications/modifier_tweaks.json" "$HOME/.config/karabiner/assets/complex_modifications/modifier_tweaks.json"
     link "$SOURCE_DIR/Library/Application Support/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
     link "$SOURCE_DIR/Library/Application Support/Code/User/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
