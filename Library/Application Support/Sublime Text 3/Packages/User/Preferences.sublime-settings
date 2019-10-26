@@ -8,8 +8,11 @@
 		".hg",
 		"CVS",
 		".stack-work",
-		"node_modules"
+		"node_modules",
+		"dist-newstyle",
+		".shake"
 	],
+	"font_size": 12,
 	"ignored_packages":
 	[
 		"Vintage"
@@ -18,5 +21,6 @@
 	"show_full_path": true,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+    "highlight_modified_tabs": true,
 }

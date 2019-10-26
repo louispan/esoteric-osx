@@ -35,6 +35,6 @@
     { "keys": ["ctrl+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"} },
     { "keys": ["ctrl+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"} },
 
-    { "keys": ["option+ctrl+e"], "command": "reveal_in_side_bar" },
-    {}
+    { "keys": ["super+e"], "command": "reveal_in_side_bar" },
+    { "keys": ["ctrl+v"], "command": "" },
 ]

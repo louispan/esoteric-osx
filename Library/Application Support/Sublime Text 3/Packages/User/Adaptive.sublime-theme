@@ -144,6 +144,11 @@
         },
         {
             "class": "sidebar_label",
+            "parents": [{"class": "tree_row", "attributes": ["dirty"]}],
+            "layer0.tint": "hsl(32, 98%, 56%)",
+        },
+        {
+            "class": "sidebar_label",
             "parents": [{"class": "window", "attributes": ["file_light"]}, {"class": "tree_row", "attributes": ["selected"]}],
             "fg": [0, 0, 0],
         },
@@ -174,6 +179,8 @@
             "class": "close_button",
             "attributes": ["dirty"],
             "layer0.texture": "Theme - Default/common/dark/open_file_dirty.png",
+            "layer0.tint": "hsl(32, 98%, 56%)",
+            "layer0.opacity": 1.0,
         },
         {
             "class": "close_button",
@@ -380,7 +387,7 @@
             "layer0.opacity": 1.0,
             "content_margin": [4, 0, 8, 0],
             "tint_index": 0,
-            "tab_height": 34,
+            "tab_height": 26,
             "tab_overlap": 16
         },
         {

@@ -1,0 +1,27 @@
+{
+    "prettify_on_save": true,
+    "warn_no_default_backend": false,
+    "add_default_completions": true,
+    "auto_complete_language_pragmas": false,
+    "use_improved_syntax": true,
+    "backends": {
+        "No backend": {
+            "default": false,
+            "backend": "none"
+        },
+        "Cabal-sandboxed local hsdev": {
+            "default": false,
+            "backend": "hsdev",
+            "options": {
+              "local": true,
+              "port": 4567,
+              "exec-with": "cabal2"
+              // ^^^^^^^^^^^^^^^^^ Remember to insert a comma (",") after this line once you set install-dir
+              // to hsdev's installation directory.
+              //
+              // Force a diagnostic message because this has to be set in conjunction with exec-with:
+              // "install-dir": "$HOME/totally/invalid/directory"
+            }
+        },
+    }
+}
